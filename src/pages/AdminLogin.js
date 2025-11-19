@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Lock, User, KeyRound, AlertCircle } from 'lucide-react'; // Tambah import icon
 
+const API_URL = "backend-kritik-saran-desa-production.up.railway.app";
+
 export default function AdminLogin({ onLoginSuccess }) {
   // State Login Biasa
   const [username, setUsername] = useState('');
@@ -17,7 +19,7 @@ export default function AdminLogin({ onLoginSuccess }) {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/admin/login', {
+      const response = await fetch(`${API_URL}/api/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -42,7 +44,7 @@ export default function AdminLogin({ onLoginSuccess }) {
     
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/admin/reset-password-force', {
+      const response = await fetch(`${API_URL}/api/admin/reset-password-force`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
