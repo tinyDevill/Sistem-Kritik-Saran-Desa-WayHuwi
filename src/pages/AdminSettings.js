@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { UserCog, Save, Lock, User, AlertTriangle } from 'lucide-react';
 
+const API_URL = "backend-kritik-saran-desa-production.up.railway.app";
+
 export default function AdminSettings({ adminToken }) {
   const [formData, setFormData] = useState({
     newUsername: '',
@@ -35,7 +37,7 @@ export default function AdminSettings({ adminToken }) {
 
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:3001/api/admin/update', {
+      const res = await fetch(`${API_URL}/api/admin/update`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
