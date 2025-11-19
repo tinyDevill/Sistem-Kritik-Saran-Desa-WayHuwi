@@ -21,7 +21,7 @@ const SidebarHeader = ({ isExpanded = true, onCloseMobile }) => (
       />
       <div className={`transition-opacity ${isExpanded ? 'opacity-100' : 'opacity-0 hidden'}`}>
         <h1 className="text-lg font-semibold text-white truncate">Sistem Kritik & Saran</h1>
-        <p className="text-xs text-gray-400">Portal Aspirasi Warga</p>
+        <p className="text-xs text-gray-400">Portal Aspirasi Warga WayHui</p>
       </div>
     </div>
     {onCloseMobile && (

@@ -22,7 +22,7 @@ const SidebarHeader = ({ isExpanded = true, onCloseMobile }) => (
         className="h-10 w-10 object-contain flex-shrink-0"
       />
       <div className={`transition-opacity ${isExpanded ? 'opacity-100' : 'opacity-0 hidden'}`}>
-        <h1 className="text-lg font-semibold text-white truncate">Admin Panel</h1>
+        <h1 className="text-lg font-semibold text-white truncate">Admin Desa WayHui</h1>
         <p className="text-xs text-gray-400">Kritik & Saran</p>
       </div>
     </div>

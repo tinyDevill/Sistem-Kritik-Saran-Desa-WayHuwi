@@ -226,11 +226,9 @@ const handleAddPengumuman = async (dataPengumuman) => {
     formData.append('judul', dataPengumuman.judul);
     formData.append('isi', dataPengumuman.isi);
 
-    // 2. PERBAIKAN UTAMA DI SINI (JANGAN SALAH KETIK)
-    // Backend meminta 'imageUrls', JANGAN pakai 'image' atau 'files'
+    // 2. Masukkan file gambar
     if (dataPengumuman.imageFiles && dataPengumuman.imageFiles.length > 0) {
       dataPengumuman.imageFiles.forEach((file) => {
-        // INI KUNCINYA: Label harus persis 'imageUrls'
         formData.append('imageUrls', file); 
       });
     }
@@ -240,21 +238,24 @@ const handleAddPengumuman = async (dataPengumuman) => {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${adminToken}` 
-        // JANGAN set Content-Type manual
       },
       body: formData
     });
 
     if (!response.ok) {
-      // Supaya kita tahu error apa yang dibalas server (jika bukan 500)
       const errorText = await response.text();
       throw new Error(errorText || 'Gagal menambah pengumuman');
     }
 
     const savedData = await response.json();
     
-    // Update State
-    setAllPengumuman(prev => [savedData.data, ...prev]); 
+    // --- PERBAIKAN DI SINI (PENTING) ---
+    // Format data baru agar memiliki properti 'id' yang diambil dari '_id'
+    const newItem = { ...savedData.data, id: savedData.data._id };
+
+    // Masukkan item yang sudah diformat ke state
+    setAllPengumuman(prev => [newItem, ...prev]); 
+    // -----------------------------------
 
     return savedData;
   } catch (error) {

@@ -19,7 +19,7 @@ export default function AdminHomePage({ laporan = [] }) {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl p-4 md:p-6 shadow-lg">
-        <h2 className="text-lg md:text-2xl font-bold mb-1">Selamat Datang, Admin!</h2>
+        <h2 className="text-lg md:text-2xl font-bold mb-1">Selamat Datang, Admin Desa WayHui</h2>
         <p className="text-xs md:text-sm text-blue-100">Kelola semua laporan dan aspirasi warga di sini.</p>
       </div>
       

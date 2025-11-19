@@ -235,7 +235,7 @@ export default function HomePage({ laporan = [], pengumuman = [] }) {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-xl p-4 md:p-6 shadow-lg">
-        <h2 className="text-lg md:text-2xl font-bold mb-1">Selamat Datang, Warga!</h2>
+        <h2 className="text-lg md:text-2xl font-bold mb-1">Selamat Datang, Warga WayHui!</h2>
         <p className="text-xs md:text-sm text-green-50">Sampaikan aspirasi Anda untuk kemajuan desa kita bersama</p>
       </div>
 
