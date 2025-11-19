@@ -235,7 +235,7 @@ const handleAddPengumuman = async (dataPengumuman) => {
     }
 
     // 3. Kirim ke Server
-    const response = await fetch('${API_URL}/api/pengumuman', {
+    const response = await fetch(`${API_URL}/api/pengumuman`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${adminToken}` 
