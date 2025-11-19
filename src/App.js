@@ -6,6 +6,7 @@ import AdminLayout from './AdminLayout';
 import { notificationsData } from './data/appData';
 
 const initialNotifications = notificationsData;
+const API_URL = "backend-kritik-saran-desa-production.up.railway.app";
 
 export default function App() {
   
@@ -26,7 +27,7 @@ export default function App() {
     // Fungsi untuk mengambil data laporan
     async function fetchLaporan() {
       try {
-        const response = await fetch('http://localhost:3001/api/laporan');
+        const response = await fetch(`${API_URL}/api/laporan`);
         const data = await response.json();
         // Ganti ID lokal (angka) dengan _id dari MongoDB (string)
         const formattedData = data.map(item => ({ ...item, id: item._id }));
@@ -39,7 +40,7 @@ export default function App() {
     // Fungsi untuk mengambil data pengumuman
     async function fetchPengumuman() {
       try {
-        const response = await fetch('http://localhost:3001/api/pengumuman');
+        const response = await fetch(`${API_URL}/api/pengumuman`);
         const data = await response.json();
         // Ganti ID lokal (angka) dengan _id dari MongoDB (string)
         const formattedData = data.map(item => ({ ...item, id: item._id }));
@@ -90,7 +91,7 @@ export default function App() {
         });
       }
 
-      const response = await fetch('http://localhost:3001/api/laporan', {
+      const response = await fetch(`${API_URL}/api/laporan`, {
         method: 'POST',
         body: formData, 
       });
@@ -126,7 +127,7 @@ export default function App() {
     if (!window.confirm('Apakah Anda yakin ingin menghapus laporan ini?')) return;
     
     try {
-      const response = await fetch(`http://localhost:3001/api/laporan/${laporanId}`, {
+      const response = await fetch(`${API_URL}/api/laporan/${laporanId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${adminToken}`
@@ -157,7 +158,7 @@ export default function App() {
 
   const handleUpdateStatus = async (laporanId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/laporan/${laporanId}`, {
+      const response = await fetch(`${API_URL}/api/laporan/${laporanId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +186,7 @@ export default function App() {
 
   const handleSetPriority = async (laporanId, newPriority) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/laporan/${laporanId}`, {
+      const response = await fetch(`${API_URL}/api/laporan/${laporanId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -234,7 +235,7 @@ const handleAddPengumuman = async (dataPengumuman) => {
     }
 
     // 3. Kirim ke Server
-    const response = await fetch('http://localhost:3001/api/pengumuman', {
+    const response = await fetch('${API_URL}/api/pengumuman', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${adminToken}` 
@@ -268,7 +269,7 @@ const handleAddPengumuman = async (dataPengumuman) => {
     if (!window.confirm('Apakah Anda yakin ingin menghapus pengumuman ini?')) return;
     
     try {
-      const response = await fetch(`http://localhost:3001/api/pengumuman/${pengumumanId}`, {
+      const response = await fetch(`${API_URL}/api/pengumuman/${pengumumanId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${adminToken}` // <-- KIRIM TOKEN
@@ -318,7 +319,7 @@ const handleEditPengumuman = async (id, data) => {
     // 5. Eksekusi Request ke Backend
     // Perhatikan: URL menggunakan ID yang valid
     console.log ('mengirim token:', adminToken)
-    const response = await fetch(`http://localhost:3001/api/pengumuman/${id}`, {
+    const response = await fetch(`${API_URL}/api/pengumuman/${id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${adminToken}`
