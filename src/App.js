@@ -6,7 +6,7 @@ import AdminLayout from './AdminLayout';
 import { notificationsData } from './data/appData';
 
 const initialNotifications = notificationsData;
-const API_URL = "backend-kritik-saran-desa-production.up.railway.app";
+const API_URL = "https://backend-kritik-saran-desa-production.up.railway.app";
 
 export default function App() {
   
