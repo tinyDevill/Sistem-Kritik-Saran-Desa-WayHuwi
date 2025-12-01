@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Lock, User, KeyRound, AlertCircle } from 'lucide-react'; // Tambah import icon
 
-const API_URL = "backend-kritik-saran-desa-production-07ae.up.railway.app";
+const API_URL = "https://backend-kritik-saran-desa-production-07ae.up.railway.app";
 
 export default function AdminLogin({ onLoginSuccess }) {
   // State Login Biasa
