@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserCog, Save, Lock, User, AlertTriangle } from 'lucide-react';
 
-const API_URL = "backend-kritik-saran-desa-production-07ae.up.railway.app";
+const API_URL = "https://backend-kritik-saran-desa-production-07ae.up.railway.app";
 
 export default function AdminSettings({ adminToken }) {
   const [formData, setFormData] = useState({
