@@ -20,7 +20,7 @@ export default function Header({ notifications, setShowNotification, showNotific
           
           <div>
             {/* Hapus 'truncate' agar teks bisa wrap di HP */}
-            <h1 className="text-base md:text-xl font-bold">Sistem Kritik & Saran Desa</h1>
+            <h1 className="text-base md:text-xl font-bold">Kritik & Saran Desa Wayhuwi</h1>
             
             <p className="text-sm text-green-100 hidden md:block">Portal Aspirasi Warga</p>
           </div>
